@@ -2,10 +2,7 @@ package com.company;
 
 public class Main {
 
-
-
     public static void main(String[] args) {
-
 
         Cliente cliente1 = new Cliente("davi", "davi@email.com", "47637813835", "1995-12-04");
         Cliente cliente2 = new Cliente("Teste", "Teste@email.com", "12345678985", "1993-11-16");

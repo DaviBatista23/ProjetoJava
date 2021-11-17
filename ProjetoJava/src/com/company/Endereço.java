@@ -25,7 +25,6 @@ public class Endereço {
                 + ", " + this.cep);
     }
 
-    
     public String getRua() {
         return rua;
     }
