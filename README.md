@@ -1,4 +1,4 @@
-# # Projeto Java
+## Projeto Java
 ### Projeto criado para exercer os aprendizados adquiridos com a trilha de estudos da Alura.
 
 ## Objetivo
