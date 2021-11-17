@@ -8,12 +8,12 @@ public class Cliente {
     private static int sequence = 1;
 
     private int id;
-    private String dataNasc;
     private String nome;
     private int idade;
     private String email;
     private String cpf;
     private Endereço endereco;
+    private String dataNasc;
 
     public Cliente (String nome, String email, String cpf, String dataNasc) {
         this.id = sequence++;
@@ -31,6 +31,14 @@ public class Cliente {
         Period periodo = Period.between(data2, data1);
 
         return periodo.getYears();
+    }
+
+    public String getDataNasc() {
+        return dataNasc;
+    }
+
+    public void setDataNasc(String dataNasc) {
+        this.dataNasc = dataNasc;
     }
 
     public static int getSequence() {

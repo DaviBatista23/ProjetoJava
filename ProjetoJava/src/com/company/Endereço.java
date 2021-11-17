@@ -17,7 +17,7 @@ public class Endereço {
     }
 
     public void showAdrress() {
-        System.out.println("O Endereço do Cliente é: " );
+        System.out.println("O Endereço é: " );
         System.out.printf(this.rua
                 + " " + this.numero
                 + ", " + this.complemento
