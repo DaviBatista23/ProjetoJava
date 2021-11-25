@@ -1,4 +1,4 @@
-package com.company;
+package Repositorios;
 
 public class Produto {
 
