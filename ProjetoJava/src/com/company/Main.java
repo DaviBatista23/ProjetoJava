@@ -18,9 +18,9 @@ public class Main {
 //        //Cliente cliente1 = new Cliente("davi", "davi@email.com", "47637813835", "1995-12-04");
 //        //Cliente cliente2 = new Cliente("Teste", "Teste@email.com", "12345678985", "1993-11-16");
 //
-//        Endereço endereco1 = new Endereço("Rua Ivai", "Tatuapé", 33, "casa", "03030-010");
-//        cliente1.setEndereco(endereco1);
-//
+//    ServiceAdress endereco1 = new ServiceAdress("Rua Ivai", "Tatuapé", 33, "casa", "03030-010");
+// cliente1.setEndereco(endereco1);
+////
 
 //        System.out.println("\nA Data de nascimento do cliente é: " + cliente1.getDataNasc());
 //

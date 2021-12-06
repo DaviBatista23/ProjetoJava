@@ -1,10 +1,7 @@
 package com.service;
 
-import com.google.gson.Gson;
 import Repositorios.Cliente;
-import com.google.gson.GsonBuilder;
 
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -13,56 +10,37 @@ public class ServiceClient {
     public static void cadastraCliente() throws IOException {
         Scanner leitura = new Scanner(System.in);
 
-        System.out.println("Digite seu nome: ");
+        System.out.println("Informe os dados do Cliente: ");
+
+        System.out.println("Digite o Nome: ");
         String nome = leitura.nextLine();
 
-        System.out.println("Digite seu E-mail: ");
+        System.out.println("Digite o E-mail: ");
         String email = leitura.nextLine();
 
-        System.out.println("Digite seu CPF: ");
+        System.out.println("Digite o CPF: ");
         String cpf = leitura.nextLine();
 
-        System.out.println("Digite sua Data de nascimento: ");
+        System.out.println("Digite a Data de nascimento: ");
         String dataNasc = leitura.nextLine();
 
+        String tipo = "Cliente";
 
-        Cliente cliente1 = new Cliente(nome, email, cpf, dataNasc);
+        Cliente newClient = new Cliente(nome, email, cpf, dataNasc, tipo);
 
-        sleep();
+        Cliente.salva(newClient);
 
-        trazerCliente(cliente1);
+        System.out.println("\nCliente salvo com sucesso!!");
 
-        sleep();
+        Menu.sleep();
 
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
-        String jsonClient =  gson.toJson(cliente1);
-
-        System.out.println("Cliente salvo com sucesso!!");
-
-        FileWriter fileWriter = new FileWriter("C:\\Users\\Davi Batista\\Documents\\GitHub\\ProjetoJava\\ProjetoJava\\src\\Db\\Db.json");
-        fileWriter.write(jsonClient);
-        fileWriter.flush();
-        fileWriter.close();
-
-
-        sleep();
         Menu.menu();
     };
 
-    public static void trazerCliente(Cliente cliente) {
-
-        System.out.println("O ID do cliente é: " + cliente.getId());
-        System.out.println("O nome do cliente é: " + cliente.getNome());
-        System.out.println("A idade do cliente é: " + cliente.getIdade());
-        System.out.println("O e-mail do cliente é: " + cliente.getEmail());
-        System.out.println("O CPF do cliente é: " + cliente.getCpf());
-//        cliente.getEndereco().showAdrress();
-
+    public static Cliente salvarCliente(String nome, String email, String cpf, String dataNasc, String tipo){
+        Cliente cliente = new Cliente(nome, email, cpf, dataNasc, tipo);
+        Cliente.salva(cliente);
+        return cliente;
     }
 
-    public static void sleep() {
-        try { Thread.sleep (3000); } catch (InterruptedException ex) {}
-        System.out.println("\n----------------");
-    }
 }

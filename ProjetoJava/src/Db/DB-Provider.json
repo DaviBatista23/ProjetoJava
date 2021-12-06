@@ -1,0 +1,11 @@
+[
+  {
+    "cnpj": "12.200.300/0001-10",
+    "nome": "Fornecedor 1",
+    "nomeFant": "fornecedorteste",
+    "dataFund": "1995-01-12",
+    "email": "teste@fornecedor.com",
+    "service": "Teste",
+    "tipo": "Fornecedor"
+  }
+]

@@ -23,7 +23,7 @@ public class Menu {
         } if (opção == 2) {
             menuFornecedor();
         }   if (opção == 3){
-            exitSystem();
+             exitSystem();
         }
 
     }
@@ -76,4 +76,8 @@ public class Menu {
 
     }
 
+    public static void sleep() {
+        try { Thread.sleep (3000); } catch (InterruptedException ex) {}
+        System.out.println("\n----------------");
+    }
 }

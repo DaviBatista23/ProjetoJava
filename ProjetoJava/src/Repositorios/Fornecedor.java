@@ -1,6 +1,11 @@
 package Repositorios;
 
-import com.company.Endereço;
+import com.google.gson.*;
+import com.service.ServiceAdress;
+
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Fornecedor {
 
@@ -8,17 +13,54 @@ public class Fornecedor {
     private String nome;
     private String nomeFant;
     private String dataFund;
-    private Endereço endereco;
+    private String endereco;
     private String email;
     private String service;
+    private String tipo;
 
-    public Fornecedor(String cnpj, String nome, String nomeFant, String dataFund, String email, String service) {
+    public Fornecedor(String cnpj, String nome, String nomeFant, String dataFund, String email, String service, String tipo) {
         this.cnpj = cnpj;
         this.nome = nome;
         this.nomeFant = nomeFant;
         this.dataFund = dataFund;
         this.email = email;
         this.service = service;
+        this.tipo = tipo;
+        this.endereco = ServiceAdress.cadastrarEndereço();
+    }
+
+    public static void salva (Fornecedor fornecedor) {
+        JsonParser jsonParser = new JsonParser();
+
+        try {
+            Object obj = jsonParser.parse(new FileReader("C:\\Users\\Davi Batista\\Documents\\GitHub\\ProjetoJava\\ProjetoJava\\src\\Db\\DB-Provider.json"));
+            JsonArray jsonArray = (JsonArray) obj;
+
+            JsonObject newProvider = new JsonObject();
+            newProvider.addProperty("cnpj", fornecedor.getCnpj());
+            newProvider.addProperty("nome", fornecedor.getNome());
+            newProvider.addProperty("nomeFant", fornecedor.getNomeFant());
+            newProvider.addProperty("dataFund", fornecedor.getDataFund());
+            newProvider.addProperty("email", fornecedor.getEmail());
+            newProvider.addProperty("service", fornecedor.getService());
+            newProvider.addProperty("tipo", fornecedor.getTipo());
+            newProvider.addProperty("endereco", fornecedor.getEndereco());
+
+            jsonArray.add(newProvider);
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            String jsonProvider = gson.toJson(jsonArray);
+            FileWriter file = new FileWriter("C:\\Users\\Davi Batista\\Documents\\GitHub\\ProjetoJava\\ProjetoJava\\src\\Db\\DB-Provider.json");
+            file.write(jsonProvider);
+            file.flush();
+            file.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private String getTipo() {
+        return tipo;
     }
 
     public String getCnpj() {
@@ -53,11 +95,11 @@ public class Fornecedor {
         this.dataFund = dataFund;
     }
 
-    public Endereço getEndereco() {
+    public String getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(Endereço endereco) {
+    public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
 
