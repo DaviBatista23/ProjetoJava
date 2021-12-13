@@ -1,22 +1,24 @@
 [
   {
     "id": 1,
-    "nome": "Teste 1",
+    "nome": "teste",
     "idade": 22,
-    "email": "teste1@teste.com",
-    "cpf": "476.378.138-35",
+    "email": "teste",
+    "cpf": "teste",
     "dataNasc": "1999-12-04",
     "tipo": "Cliente",
-    "endereco": "teste, 1, casa, teste , 03080-010"
+    "endereco": "Ivaí 238, casa 5, Tatuape, 03080-010",
+    "bairro": "Tatuape"
   },
   {
     "id": 2,
-    "nome": "Cliente 2",
-    "idade": 28,
-    "email": "cliente2@teste.com",
-    "cpf": "123.456.789-10",
-    "dataNasc": "1993-05-12",
+    "nome": "teste2",
+    "idade": 22,
+    "email": "teste2",
+    "cpf": "teste2",
+    "dataNasc": "1999-12-04",
     "tipo": "Cliente",
-    "endereco": "Teste, 123, 5, Teste, 03080-010"
+    "endereco": "Ivaí 238, casa 5, Tatuape, 03080-010",
+    "bairro": "Tatuape"
   }
 ]

@@ -1,0 +1,24 @@
+[
+  {
+    "cnpj": "teste",
+    "nome": "teste",
+    "nomeFant": "teste",
+    "dataFund": "teste",
+    "email": "teste",
+    "service": "teste",
+    "tipo": "Fornecedor",
+    "cep": "03080010",
+    "endereco": "Ivaí 238, 5, Tatuapé, 03080010"
+  },
+  {
+    "cnpj": "teste",
+    "nome": "teste",
+    "nomeFant": "teste",
+    "dataFund": "teste",
+    "email": "teste",
+    "service": "teste",
+    "tipo": "Fornecedor",
+    "cep": "teste",
+    "endereco": "Rua 238, 5, Tatuapé, teste"
+  }
+]

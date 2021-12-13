@@ -18,21 +18,14 @@ public class ServiceAdress {
         ServiceAdress.cep = cep;
     }
 
-    public void showAdrress() {
-        System.out.println("O Endereço é: " );
-        System.out.printf(this.rua
-                + " " + this.numero
-                + ", " + this.complemento
-                + ", " + this.bairro
-                + ", " + this.cep);
-    }
-
     public static String cadastrarEndereço() {
         Scanner leitura = new Scanner(System.in);
 
-        System.out.println("Informe o Endereço: ");
+        System.out.println("\nInforme o Endereço: ");
 
-        String space = ", ";
+        String space = " ";
+        String sv = ", ";
+
         System.out.println("Digite o nome da Rua: ");
         String rua = leitura.nextLine();
 
@@ -43,12 +36,12 @@ public class ServiceAdress {
         String complemento = leitura.nextLine();
 
         System.out.println("Digite o Bairro: ");
-        String bairro = leitura.nextLine();
+        ServiceAdress.bairro = leitura.nextLine();
 
         System.out.println("Digite o CEP: ");
-        String cep = leitura.nextLine();
+        ServiceAdress.cep = leitura.nextLine();
 
-        return rua + space + numero + space + complemento + space + bairro + space + cep;
+        return rua + space + numero + sv + complemento + sv + bairro + sv + cep;
     }
 
     public static String getRua() {

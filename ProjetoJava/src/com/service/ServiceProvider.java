@@ -43,4 +43,28 @@ public class ServiceProvider {
         Menu.menu();
     }
 
+    public static void searchByService() throws IOException {
+        System.out.println("\nPESQUISA POR TIPO DE SERVIÇO");
+        System.out.println("Digite o SERVIÇO: ");
+
+        Scanner leitura = new Scanner(System.in);
+        String service = leitura.nextLine();
+
+        Fornecedor.searchProviderService(service);
+        Menu.sleep();
+        Menu.menu();
+    }
+
+    public static void searchByCEP() throws IOException {
+        System.out.println("\nPESQUISA POR CEP");
+        System.out.println("Digite o CEP: ");
+
+        Scanner leitura = new Scanner(System.in);
+        String cep = leitura.nextLine();
+
+        Fornecedor.searchProviderCEP(cep);
+        Menu.sleep();
+        Menu.menu();
+
+    }
 }

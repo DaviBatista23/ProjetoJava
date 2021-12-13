@@ -1,11 +1,24 @@
 [
   {
-    "cnpj": "12.200.300/0001-10",
-    "nome": "Fornecedor 1",
-    "nomeFant": "fornecedorteste",
-    "dataFund": "1995-01-12",
-    "email": "teste@fornecedor.com",
-    "service": "Teste",
-    "tipo": "Fornecedor"
+    "cnpj": "22100200000130",
+    "nome": "teste1",
+    "nomeFant": "teste1",
+    "dataFund": "20-10-2001",
+    "email": "teste@teste",
+    "service": "teste",
+    "tipo": "Fornecedor",
+    "cep": "03080010",
+    "endereco": "Ivaí 238, 5, Tatuapé, 03080010"
+  },
+  {
+    "cnpj": "22100200000120",
+    "nome": "teste2",
+    "nomeFant": "teste2",
+    "dataFund": "10-10-2000",
+    "email": "teste@teste2",
+    "service": "teste",
+    "tipo": "Fornecedor",
+    "cep": "03070010",
+    "endereco": "Rua 238, 5, Tatuapé, teste"
   }
 ]

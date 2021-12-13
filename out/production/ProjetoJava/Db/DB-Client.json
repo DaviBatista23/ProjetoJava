@@ -1,3 +1,24 @@
 [
-
+  {
+    "id": 1,
+    "nome": "teste",
+    "idade": 22,
+    "email": "teste",
+    "cpf": "teste",
+    "dataNasc": "1999-12-04",
+    "tipo": "Cliente",
+    "endereco": "Ivaí 238, casa 5, Tatuape, 03080-010",
+    "bairro": "Tatuape"
+  },
+  {
+    "id": 2,
+    "nome": "teste2",
+    "idade": 22,
+    "email": "teste2",
+    "cpf": "teste2",
+    "dataNasc": "1999-12-04",
+    "tipo": "Cliente2",
+    "endereco": "Ivaí 238, casa 5, Tatuape, 03080-010",
+    "bairro": "Tatuape"
+  }
 ]

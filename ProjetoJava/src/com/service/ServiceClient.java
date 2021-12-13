@@ -35,12 +35,32 @@ public class ServiceClient {
         Menu.sleep();
 
         Menu.menu();
-    };
-
-    public static Cliente salvarCliente(String nome, String email, String cpf, String dataNasc, String tipo){
-        Cliente cliente = new Cliente(nome, email, cpf, dataNasc, tipo);
-        Cliente.salva(cliente);
-        return cliente;
     }
+
+    public static void searchByCPF() throws IOException {
+        System.out.println("\nPESQUISA POR CPF");
+        System.out.println("Digite o CPF: ");
+
+        Scanner leitura = new Scanner(System.in);
+        String cpf = leitura.nextLine();
+
+        Cliente.searchClientCPF(cpf);
+        Menu.sleep();
+        Menu.menu();
+    }
+
+    public static void pesquisaBairro() throws IOException {
+        System.out.println("\nPESQUISA POR BAIRRO");
+        System.out.println("Digite o Bairro: ");
+
+        Scanner leitura = new Scanner(System.in);
+        String bairro = leitura.nextLine();
+
+        Cliente.searchClientBairro(bairro);
+        Menu.sleep();
+        Menu.menu();
+    }
+
+
 
 }

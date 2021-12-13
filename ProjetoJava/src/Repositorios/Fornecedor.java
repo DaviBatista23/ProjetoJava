@@ -3,9 +3,12 @@ package Repositorios;
 import com.google.gson.*;
 import com.service.ServiceAdress;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Fornecedor {
 
@@ -17,6 +20,7 @@ public class Fornecedor {
     private String email;
     private String service;
     private String tipo;
+    private String cep;
 
     public Fornecedor(String cnpj, String nome, String nomeFant, String dataFund, String email, String service, String tipo) {
         this.cnpj = cnpj;
@@ -27,6 +31,7 @@ public class Fornecedor {
         this.service = service;
         this.tipo = tipo;
         this.endereco = ServiceAdress.cadastrarEndereço();
+        this.cep = ServiceAdress.getCep();
     }
 
     public static void salva (Fornecedor fornecedor) {
@@ -44,6 +49,7 @@ public class Fornecedor {
             newProvider.addProperty("email", fornecedor.getEmail());
             newProvider.addProperty("service", fornecedor.getService());
             newProvider.addProperty("tipo", fornecedor.getTipo());
+            newProvider.addProperty("cep", fornecedor.getCep());
             newProvider.addProperty("endereco", fornecedor.getEndereco());
 
             jsonArray.add(newProvider);
@@ -115,7 +121,71 @@ public class Fornecedor {
         return service;
     }
 
+    public String getCep() {
+        return cep;
+    }
+
     public void setService(String service) {
         this.service = service;
+    }
+
+    public static void searchProviderService(String service) {
+        try {
+            JsonParser jsonParser    = new JsonParser();
+            Object obj = jsonParser.parse(new FileReader("C:\\Users\\Davi Batista\\Documents\\GitHub\\ProjetoJava\\ProjetoJava\\src\\Db\\DB-Provider.json"));
+            JsonArray     jsonArray = (JsonArray) obj;
+            Gson          gson      = new GsonBuilder().create();
+            List<Fornecedor> fornecedores  = new ArrayList<>();
+            jsonArray.forEach(jsonProvider -> {
+                        fornecedores.add(gson.fromJson(jsonProvider, Fornecedor.class));
+                    }
+            );
+            fornecedores.forEach(fornecedor -> {
+                if (fornecedor.getService().equals(service)) {
+                    System.out.println("\nFonecedor encontrado:");
+                    System.out.println("\nNome: " +fornecedor.getNome());
+                    System.out.println("Nome Fantasia: " +fornecedor.getNomeFant());
+                    System.out.println("Data de Fundação: " +fornecedor.getDataFund());
+                    System.out.println("CNPJ: " +fornecedor.getCnpj());
+                    System.out.println("E-mail: " +fornecedor.getEmail());
+                    System.out.println("Tipo: " +fornecedor.getTipo());
+                    System.out.println("Serviço: " +fornecedor.getService());
+                    System.out.println("Endereco: " +fornecedor.getEndereco());
+                }
+            });
+
+        } catch (FileNotFoundException ignored) {
+
+        }
+    }
+
+    public static void searchProviderCEP(String cep) {
+        try {
+            JsonParser jsonParser    = new JsonParser();
+            Object obj = jsonParser.parse(new FileReader("C:\\Users\\Davi Batista\\Documents\\GitHub\\ProjetoJava\\ProjetoJava\\src\\Db\\DB-Provider.json"));
+            JsonArray     jsonArray = (JsonArray) obj;
+            Gson          gson      = new GsonBuilder().create();
+            List<Fornecedor> fornecedores  = new ArrayList<>();
+            jsonArray.forEach(jsonProvider -> {
+                        fornecedores.add(gson.fromJson(jsonProvider, Fornecedor.class));
+                    }
+            );
+            fornecedores.forEach(fornecedor -> {
+                if (fornecedor.getCep().equals(cep)) {
+                    System.out.println("\nFonecedor encontrado:");
+                    System.out.println("\nNome: " +fornecedor.getNome());
+                    System.out.println("Nome Fantasia: " +fornecedor.getNomeFant());
+                    System.out.println("Data de Fundação: " +fornecedor.getDataFund());
+                    System.out.println("CNPJ: " +fornecedor.getCnpj());
+                    System.out.println("E-mail: " +fornecedor.getEmail());
+                    System.out.println("Tipo: " +fornecedor.getTipo());
+                    System.out.println("Serviço: " +fornecedor.getService());
+                    System.out.println("Endereco: " +fornecedor.getEndereco());
+                }
+            });
+
+        } catch (FileNotFoundException ignored) {
+
+        }
     }
 }
