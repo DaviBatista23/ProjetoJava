@@ -1,18 +1,19 @@
 package com.service;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.Scanner;
 
 public class Menu {
 
-    public static void menu() throws IOException {
+    public static void menu() throws IOException, ParseException {
 
         int opção;
 
         System.out.println("\nMENU INICIAL");
         System.out.println("\nDigite a opção desejada: ");
-        System.out.println("1- MENU Cliente");
-        System.out.println("2- MENU Fornecedor");
+        System.out.println("1- Menu de Cliente");
+        System.out.println("2- Menu de Fornecedor");
         System.out.println("0- Sair do Sistema");
 
         Scanner leitura = new Scanner(System.in);
@@ -28,7 +29,7 @@ public class Menu {
 
     }
 
-    public static void menuCliente() throws IOException {
+    public static void menuCliente() throws IOException, ParseException {
         System.out.println("\nMenu de Cadastro de Clientes!");
         System.out.println("\nDigite a opção desejada: ");
         System.out.println("1- Cadastrar novo Cliente");
@@ -56,7 +57,7 @@ public class Menu {
         System.exit(1);
     }
 
-    public static void menuFornecedor() throws IOException {
+    public static void menuFornecedor() throws IOException, ParseException {
         System.out.println("Menu de Cadastro de Fornecedores: ");
         System.out.println("\nDigite a opção desejada: ");
         System.out.println("1- Cadastrar novo Fornecedor");
@@ -79,7 +80,7 @@ public class Menu {
         }
     }
 
-    public static void menuSearchClient() throws IOException {
+    public static void menuSearchClient() throws IOException, ParseException {
         System.out.println("\nDigite a opção desejada: ");
         System.out.println("1- Pesquisar por CPF");
         System.out.println("2- Pesquisar por Bairro");
@@ -98,7 +99,7 @@ public class Menu {
         }
     }
 
-    public static void menuSearchProvider() throws IOException {
+    public static void menuSearchProvider() throws IOException, ParseException {
         System.out.println("\nDigite a opção desejada: ");
         System.out.println("1- Pesquisar por Serviço");
         System.out.println("2- Pesquisar por CEP");

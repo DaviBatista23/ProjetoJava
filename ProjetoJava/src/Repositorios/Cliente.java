@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
@@ -40,10 +41,12 @@ public class Cliente {
     }
 
     public int calculaIdade() {
-        LocalDate data1 = LocalDate.now();
-        LocalDate data2 = LocalDate.parse(this.dataNasc);
 
-        Period periodo = Period.between(data2, data1);
+        LocalDate hoje = LocalDate.now();
+        String[] dataSeparada = this.dataNasc.split("[^0-9a-zA-Z]+");
+        LocalDate dnf = LocalDate.of(Integer.parseInt(dataSeparada[2]), Integer.parseInt(dataSeparada[1]),Integer.parseInt(dataSeparada[0]));
+
+        Period periodo = Period.between(hoje, dnf);
 
         return periodo.getYears();
     }
@@ -74,7 +77,7 @@ public class Cliente {
             file.flush();
             file.close();
 
-        } catch (IOException e) {
+        } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
     }
@@ -111,7 +114,7 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public int getIdade() {
+    public int getIdade() throws ParseException {
         return calculaIdade();
     }
 
@@ -184,7 +187,7 @@ public class Cliente {
                     System.out.println("Endereco: " +cliente.getEndereco());
             }
 
-        } catch (FileNotFoundException ignored) {
+        } catch (FileNotFoundException | ParseException ignored) {
 
         }
     }
@@ -205,7 +208,11 @@ public class Cliente {
                     System.out.println("\nCliente encontrado:");
                     System.out.println("\nId: " + cliente.getId());
                     System.out.println("Nome: " +cliente.getNome());
-                    System.out.println("Idade: " +cliente.getIdade());
+                    try {
+                        System.out.println("Idade: " +cliente.getIdade());
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
                     System.out.println("E-mail: " +cliente.getEmail());
                     System.out.println("CPF: " +cliente.getCpf());
                     System.out.println("Data Nascimento: " +cliente.getDataNasc());
@@ -218,4 +225,38 @@ public class Cliente {
 
         }
     }
+
+    public static void delete(String cpf) {
+        try {
+            JsonParser jsonParser = new JsonParser();
+
+            Object obj = jsonParser.parse(new FileReader("C:\\Users\\Davi Batista\\Documents\\GitHub\\ProjetoJava\\ProjetoJava\\src\\Db\\DB-Client.json"));
+            JsonArray jsonArray = (JsonArray) obj;
+            Gson gson = new GsonBuilder().create();
+            List<Cliente> clientes = new ArrayList<>();
+            jsonArray.forEach(jsonClient -> {
+                        clientes.add(gson.fromJson(jsonClient, Cliente.class));
+                    }
+            );
+
+            List<Cliente> lista2 = clientes.stream().filter(cliente -> cliente.getCpf().equals(cpf)).collect(Collectors.toList());
+
+            Cliente cliente = !lista2.isEmpty() ? lista2.get(0) : null;
+            if (cliente != null ) {
+                System.out.println("\nCliente encontrado:");
+                System.out.println("\nId: " + cliente.getId());
+                System.out.println("Nome: " +cliente.getNome());
+                System.out.println("Idade: " +cliente.getIdade());
+                System.out.println("E-mail: " +cliente.getEmail());
+                System.out.println("CPF: " +cliente.getCpf());
+                System.out.println("Data Nascimento: " +cliente.getDataNasc());
+                System.out.println("Tipo: " +cliente.getTipo());
+                System.out.println("Endereco: " +cliente.getEndereco());
+            }
+
+        } catch (FileNotFoundException | ParseException ignored) {
+
+        }
+    }
+
 }
