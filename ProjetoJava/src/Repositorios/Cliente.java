@@ -44,9 +44,9 @@ public class Cliente {
 
         LocalDate hoje = LocalDate.now();
         String[] dataSeparada = this.dataNasc.split("[^0-9a-zA-Z]+");
-        LocalDate dnf = LocalDate.of(Integer.parseInt(dataSeparada[2]), Integer.parseInt(dataSeparada[1]),Integer.parseInt(dataSeparada[0]));
+        LocalDate dnf = LocalDate.of(Integer.parseInt(dataSeparada[2]), Integer.parseInt(dataSeparada[1]), Integer.parseInt(dataSeparada[0]));
 
-        Period periodo = Period.between(hoje, dnf);
+        Period periodo = Period.between(dnf, hoje);
 
         return periodo.getYears();
     }
@@ -175,16 +175,16 @@ public class Cliente {
             List<Cliente> lista2 = clientes.stream().filter(cliente -> cliente.getCpf().equals(cpf)).collect(Collectors.toList());
 
             Cliente cliente = !lista2.isEmpty() ? lista2.get(0) : null;
-            if (cliente != null ) {
-                    System.out.println("\nCliente encontrado:");
-                    System.out.println("\nId: " + cliente.getId());
-                    System.out.println("Nome: " +cliente.getNome());
-                    System.out.println("Idade: " +cliente.getIdade());
-                    System.out.println("E-mail: " +cliente.getEmail());
-                    System.out.println("CPF: " +cliente.getCpf());
-                    System.out.println("Data Nascimento: " +cliente.getDataNasc());
-                    System.out.println("Tipo: " +cliente.getTipo());
-                    System.out.println("Endereco: " +cliente.getEndereco());
+            if (cliente != null) {
+                System.out.println("\nCliente encontrado:");
+                System.out.println("\nId: " + cliente.getId());
+                System.out.println("Nome: " + cliente.getNome());
+                System.out.println("Idade: " + cliente.getIdade());
+                System.out.println("E-mail: " + cliente.getEmail());
+                System.out.println("CPF: " + cliente.getCpf());
+                System.out.println("Data Nascimento: " + cliente.getDataNasc());
+                System.out.println("Tipo: " + cliente.getTipo());
+                System.out.println("Endereco: " + cliente.getEndereco());
             }
 
         } catch (FileNotFoundException | ParseException ignored) {
@@ -194,11 +194,11 @@ public class Cliente {
 
     public static void searchClientBairro(String bairro) {
         try {
-            JsonParser jsonParser    = new JsonParser();
+            JsonParser jsonParser = new JsonParser();
             Object obj = jsonParser.parse(new FileReader("C:\\Users\\Davi Batista\\Documents\\GitHub\\ProjetoJava\\ProjetoJava\\src\\Db\\DB-Client.json"));
-            JsonArray     jsonArray = (JsonArray) obj;
-            Gson          gson      = new GsonBuilder().create();
-            List<Cliente> clientes  = new ArrayList<>();
+            JsonArray jsonArray = (JsonArray) obj;
+            Gson gson = new GsonBuilder().create();
+            List<Cliente> clientes = new ArrayList<>();
             jsonArray.forEach(jsonClient -> {
                         clientes.add(gson.fromJson(jsonClient, Cliente.class));
                     }
@@ -207,17 +207,17 @@ public class Cliente {
                 if (cliente.getBairro().equals(bairro)) {
                     System.out.println("\nCliente encontrado:");
                     System.out.println("\nId: " + cliente.getId());
-                    System.out.println("Nome: " +cliente.getNome());
+                    System.out.println("Nome: " + cliente.getNome());
                     try {
-                        System.out.println("Idade: " +cliente.getIdade());
+                        System.out.println("Idade: " + cliente.getIdade());
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
-                    System.out.println("E-mail: " +cliente.getEmail());
-                    System.out.println("CPF: " +cliente.getCpf());
-                    System.out.println("Data Nascimento: " +cliente.getDataNasc());
-                    System.out.println("Tipo: " +cliente.getTipo());
-                    System.out.println("Endereco: " +cliente.getEndereco());
+                    System.out.println("E-mail: " + cliente.getEmail());
+                    System.out.println("CPF: " + cliente.getCpf());
+                    System.out.println("Data Nascimento: " + cliente.getDataNasc());
+                    System.out.println("Tipo: " + cliente.getTipo());
+                    System.out.println("Endereco: " + cliente.getEndereco());
                 }
             });
 
@@ -242,16 +242,16 @@ public class Cliente {
             List<Cliente> lista2 = clientes.stream().filter(cliente -> cliente.getCpf().equals(cpf)).collect(Collectors.toList());
 
             Cliente cliente = !lista2.isEmpty() ? lista2.get(0) : null;
-            if (cliente != null ) {
+            if (cliente != null) {
                 System.out.println("\nCliente encontrado:");
                 System.out.println("\nId: " + cliente.getId());
-                System.out.println("Nome: " +cliente.getNome());
-                System.out.println("Idade: " +cliente.getIdade());
-                System.out.println("E-mail: " +cliente.getEmail());
-                System.out.println("CPF: " +cliente.getCpf());
-                System.out.println("Data Nascimento: " +cliente.getDataNasc());
-                System.out.println("Tipo: " +cliente.getTipo());
-                System.out.println("Endereco: " +cliente.getEndereco());
+                System.out.println("Nome: " + cliente.getNome());
+                System.out.println("Idade: " + cliente.getIdade());
+                System.out.println("E-mail: " + cliente.getEmail());
+                System.out.println("CPF: " + cliente.getCpf());
+                System.out.println("Data Nascimento: " + cliente.getDataNasc());
+                System.out.println("Tipo: " + cliente.getTipo());
+                System.out.println("Endereco: " + cliente.getEndereco());
             }
 
         } catch (FileNotFoundException | ParseException ignored) {

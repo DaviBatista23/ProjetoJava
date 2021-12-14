@@ -39,7 +39,6 @@ public class ServiceClient {
             dataNasc = leitura.nextLine();
         }
 
-
         String tipo = "Cliente";
 
         Cliente newClient = new Cliente(nome, email, cpf, dataNasc, tipo);

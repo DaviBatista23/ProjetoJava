@@ -1,6 +1,7 @@
 package com.service;
 
 import MeuPacote.ValidaCNPJ;
+import MeuPacote.ValidaEmail;
 import Repositorios.Fornecedor;
 
 import java.io.IOException;
@@ -22,6 +23,10 @@ public class ServiceProvider {
 
         System.out.println("Digite o E-mail: ");
         String email = leitura.nextLine();
+        while (ValidaEmail.isEmail(email) != true) {
+            System.out.printf("Erro, E-mail inválido !!!\nTente novamente:\n");
+            email = leitura.nextLine();
+        }
 
         System.out.println("Digite o CNPJ (Apenas números) ");
         String cnpj = leitura.nextLine();
@@ -32,6 +37,10 @@ public class ServiceProvider {
 
         System.out.println("Digite a Data de Fundação: ");
         String dataFund = leitura.nextLine();
+        while (dataFund.length() != 10) {
+            System.out.printf("Erro, data inválida !!!\nTente novamente:\n");
+            dataFund = leitura.nextLine();
+        }
 
         System.out.println("Digite o Serviço: ");
         String service = leitura.nextLine();

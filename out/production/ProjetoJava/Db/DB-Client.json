@@ -1,90 +1,22 @@
 [
   {
     "id": 1,
-    "nome": "teste",
-    "idade": 22,
-    "email": "teste",
-    "cpf": "teste",
-    "dataNasc": "1999-12-04",
+    "nome": "andreza",
+    "idade": 27,
+    "email": "cardoso@justa.com.vc",
+    "cpf": "42695850808",
+    "dataNasc": "01/06/1994",
     "tipo": "Cliente",
-    "endereco": "Ivaí 238, casa 5, Tatuape, 03080-010",
-    "bairro": "Tatuape"
-  },
-  {
-    "id": 2,
-    "nome": "teste2",
-    "idade": 22,
-    "email": "teste2",
-    "cpf": "teste2",
-    "dataNasc": "1999-12-04",
-    "tipo": "Cliente",
-    "endereco": "Ivaí 238, casa 5, Tatuape, 03080-010",
-    "bairro": "Tatuape"
+    "endereco": "Travessa Alfonso Pina Rúbio 10, , Parque Rodrigues Alves, 02249020"
   },
   {
     "id": 1,
     "nome": "teste",
     "idade": 22,
-    "email": "teste",
+    "email": "davi@teste.com.vc",
     "cpf": "47637813835",
-    "dataNasc": "1999-12-04",
+    "dataNasc": "04-12/1999",
     "tipo": "Cliente",
-    "endereco": "teste 5, 5, tatuapé, 03080010",
-    "bairro": "tatuapé"
-  },
-  {
-    "id": 1,
-    "nome": "Davi pela décima vez",
-    "idade": 27,
-    "email": "davi@x.com",
-    "cpf": "42695850808",
-    "dataNasc": "1994-06-01",
-    "tipo": "Cliente",
-    "endereco": "Elvira 207, não tem boco, Vila Gustavo, 02249010",
-    "bairro": "Vila Gustavo"
-  },
-  {
-    "id": 2,
-    "nome": "Andreza",
-    "idade": 27,
-    "email": "cardoso@andreza.com",
-    "cpf": "00000014141",
-    "dataNasc": "1994-06-01",
-    "tipo": "Cliente",
-    "endereco": "Elvira 207, ..i.., Tucuruvi, 02249-010",
-    "bairro": "Tucuruvi"
-  },
-  {
-    "id": 1,
-    "nome": "andreza",
-    "idade": -27,
-    "email": "cardoso@outlook.com",
-    "cpf": "42695850808",
-    "dataNasc": "01-06-1994",
-    "tipo": "Cliente",
-    "endereco": "elvira 207, , gustavo, 02249-010",
-    "bairro": "gustavo"
-  },
-  {
-    "id": 1,
-    "nome": "andreza",
-    "idade": -27,
-    "email": "cardoso@teste.com",
-    "cpf": "42695850808",
-    "dataNasc": "01-06-1994",
-    "tipo": "Cliente",
-    "endereco": "elvira 207, , gustavo, 02249010",
-    "bairro": "gustavo"
-  },
-  {
-    "id": 1,
-    "nome": "Teste Davi",
-    "idade": -22,
-    "email": "davi@teste.com",
-    "cpf": "47637813835",
-    "dataNasc": "04-12-1999",
-    "tipo": "Cliente",
-    "endereco": "Ivai 238, 5, Tatuapé, 03080010",
-    "bairro": "Tatuapé"
+    "endereco": "Rua Ivaí 238, 5, Tatuapé, 03080010"
   }
 ]
