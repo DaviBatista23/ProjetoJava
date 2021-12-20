@@ -36,7 +36,6 @@ public class ServiceProduct {
         boolean saveProduct =  salva(nome, tipo, quantidade);
 
         Menu.sleep();
-
         Menu.menu();
     }
 

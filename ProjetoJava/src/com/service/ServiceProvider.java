@@ -1,8 +1,8 @@
 package com.service;
 
+import Repositories.Provider;
 import Validation.ValidateCNPJ;
 import Validation.ValidateEmail;
-import Repositories.Provider;
 import com.google.gson.*;
 
 import java.io.FileNotFoundException;
@@ -36,7 +36,7 @@ public class ServiceProvider {
 
         System.out.println("Digite o CNPJ (Apenas números) ");
         String cnpj = leitura.nextLine();
-        while (ValidateCNPJ.isCNPJ(cnpj)!= true){
+        while (ValidateCNPJ.isCNPJ(cnpj) != true) {
             System.out.println("Erro, CNPJ invalido !!!\nTente novamente:");
             cnpj = leitura.nextLine();
         }
@@ -60,7 +60,6 @@ public class ServiceProvider {
         System.out.println("\nFornecedor salvo com sucesso!!");
 
         Menu.sleep();
-
         Menu.menu();
     }
 
@@ -89,7 +88,7 @@ public class ServiceProvider {
 
     }
 
-    public static void salva (Provider fornecedor) {
+    public static void salva(Provider fornecedor) {
         JsonParser jsonParser = new JsonParser();
 
         try {
@@ -122,11 +121,11 @@ public class ServiceProvider {
 
     public static void searchProviderService(String service) {
         try {
-            JsonParser jsonParser    = new JsonParser();
+            JsonParser jsonParser = new JsonParser();
             Object obj = jsonParser.parse(new FileReader("ProjetoJava\\src\\Db\\DB-Provider.json"));
-            JsonArray     jsonArray = (JsonArray) obj;
-            Gson          gson      = new GsonBuilder().create();
-            List<Provider> fornecedores  = new ArrayList<>();
+            JsonArray jsonArray = (JsonArray) obj;
+            Gson gson = new GsonBuilder().create();
+            List<Provider> fornecedores = new ArrayList<>();
             jsonArray.forEach(jsonProvider -> {
                         fornecedores.add(gson.fromJson(jsonProvider, Provider.class));
                     }
@@ -134,14 +133,14 @@ public class ServiceProvider {
             fornecedores.forEach(fornecedor -> {
                 if (fornecedor.getService().equals(service)) {
                     System.out.println("\nFonecedor encontrado:");
-                    System.out.println("\nNome: " +fornecedor.getNome());
-                    System.out.println("Nome Fantasia: " +fornecedor.getNomeFant());
-                    System.out.println("Data de Fundação: " +fornecedor.getDataFund());
-                    System.out.println("CNPJ: " +fornecedor.getCnpj());
-                    System.out.println("E-mail: " +fornecedor.getEmail());
-                    System.out.println("Tipo: " +fornecedor.getTipo());
-                    System.out.println("Serviço: " +fornecedor.getService());
-                    System.out.println("Endereco: " +fornecedor.getEndereco());
+                    System.out.println("\nNome: " + fornecedor.getNome());
+                    System.out.println("Nome Fantasia: " + fornecedor.getNomeFant());
+                    System.out.println("Data de Fundação: " + fornecedor.getDataFund());
+                    System.out.println("CNPJ: " + fornecedor.getCnpj());
+                    System.out.println("E-mail: " + fornecedor.getEmail());
+                    System.out.println("Tipo: " + fornecedor.getTipo());
+                    System.out.println("Serviço: " + fornecedor.getService());
+                    System.out.println("Endereco: " + fornecedor.getEndereco());
                 }
             });
 
@@ -152,11 +151,11 @@ public class ServiceProvider {
 
     public static void searchProviderCEP(String cep) {
         try {
-            JsonParser jsonParser    = new JsonParser();
+            JsonParser jsonParser = new JsonParser();
             Object obj = jsonParser.parse(new FileReader("ProjetoJava\\src\\Db\\DB-Provider.json"));
-            JsonArray     jsonArray = (JsonArray) obj;
-            Gson          gson      = new GsonBuilder().create();
-            List<Provider> fornecedores  = new ArrayList<>();
+            JsonArray jsonArray = (JsonArray) obj;
+            Gson gson = new GsonBuilder().create();
+            List<Provider> fornecedores = new ArrayList<>();
             jsonArray.forEach(jsonProvider -> {
                         fornecedores.add(gson.fromJson(jsonProvider, Provider.class));
                     }
@@ -164,19 +163,61 @@ public class ServiceProvider {
             fornecedores.forEach(fornecedor -> {
                 if (fornecedor.getCep().equals(cep)) {
                     System.out.println("\nFonecedor encontrado:");
-                    System.out.println("\nNome: " +fornecedor.getNome());
-                    System.out.println("Nome Fantasia: " +fornecedor.getNomeFant());
-                    System.out.println("Data de Fundação: " +fornecedor.getDataFund());
-                    System.out.println("CNPJ: " +fornecedor.getCnpj());
-                    System.out.println("E-mail: " +fornecedor.getEmail());
-                    System.out.println("Tipo: " +fornecedor.getTipo());
-                    System.out.println("Serviço: " +fornecedor.getService());
-                    System.out.println("Endereco: " +fornecedor.getEndereco());
+                    System.out.println("\nNome: " + fornecedor.getNome());
+                    System.out.println("Nome Fantasia: " + fornecedor.getNomeFant());
+                    System.out.println("Data de Fundação: " + fornecedor.getDataFund());
+                    System.out.println("CNPJ: " + fornecedor.getCnpj());
+                    System.out.println("E-mail: " + fornecedor.getEmail());
+                    System.out.println("Tipo: " + fornecedor.getTipo());
+                    System.out.println("Serviço: " + fornecedor.getService());
+                    System.out.println("Endereco: " + fornecedor.getEndereco());
                 }
             });
 
         } catch (FileNotFoundException ignored) {
 
+        }
+    }
+    public static void deleteCnpj() throws IOException, ParseException {
+        System.out.println("\nRemover por CNPJ");
+        System.out.println("Digite o CNPJ (Apenas números)");
+
+        Scanner leitura = new Scanner(System.in);
+        String cnpj = leitura.nextLine();
+
+        deleteByCNPJ(cnpj);
+        Menu.sleep();
+        Menu.menu();
+    }
+    public static void deleteByCNPJ(String cnpj) {
+        try {
+            JsonParser jsonParser = new JsonParser();
+
+            Object obj = jsonParser.parse(new FileReader("ProjetoJava\\src\\Db\\DB-Provider.json"));
+            JsonArray jsonArray = (JsonArray) obj;
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            List<Provider> providers = new ArrayList<>();
+            jsonArray.forEach(jsonProvider -> {
+                        providers.add(gson.fromJson(jsonProvider, Provider.class));
+                    }
+            );
+
+            List<Provider> lista2 = new ArrayList<>();
+
+            providers.forEach(provider -> {
+                if (!provider.getCnpj().equals(cnpj)) {
+                    lista2.add(provider);
+                }
+            });
+
+            String jsonListProvider = gson.toJson(lista2);
+            FileWriter file = new FileWriter("ProjetoJava\\src\\Db\\DB-Provider.json");
+            file.write(jsonListProvider);
+            file.flush();
+            file.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

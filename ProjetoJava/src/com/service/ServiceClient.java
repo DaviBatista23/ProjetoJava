@@ -55,7 +55,6 @@ public class ServiceClient {
         System.out.println("\nCliente salvo com sucesso!!");
 
         Menu.sleep();
-
         Menu.menu();
     }
 
@@ -84,13 +83,25 @@ public class ServiceClient {
     }
 
     public static void deleteCpf() throws IOException, ParseException {
-        System.out.println("\nREMOVER POR CPF");
+        System.out.println("\nRemover por CPF");
         System.out.println("Digite o CPF: ");
 
         Scanner leitura = new Scanner(System.in);
         String cpf = leitura.nextLine();
 
-        delete(cpf);
+        deleteByCPF(cpf);
+        Menu.sleep();
+        Menu.menu();
+    }
+
+    public static void deleteName() throws IOException, ParseException {
+        System.out.println("\nRemover por Nome");
+        System.out.println("Digite o nome completo do cadastro: ");
+
+        Scanner leitura = new Scanner(System.in);
+        String nome = leitura.nextLine();
+
+        deleteByName(nome);
         Menu.sleep();
         Menu.menu();
     }
@@ -163,7 +174,7 @@ public class ServiceClient {
         }
     }
 
-    public static void delete(String cpf) {
+    public static void deleteByCPF(String cpf) {
         try {
             JsonParser jsonParser = new JsonParser();
 
@@ -180,6 +191,38 @@ public class ServiceClient {
 
             clientes.forEach(cliente -> {
                 if (!cliente.getCpf().equals(cpf)) {
+                    lista2.add(cliente);
+                }
+            });
+
+            String jsonListClient = gson.toJson(lista2);
+            FileWriter file = new FileWriter("ProjetoJava\\src\\Db\\DB-Client.json");
+            file.write(jsonListClient);
+            file.flush();
+            file.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void deleteByName(String nome) {
+        try {
+            JsonParser jsonParser = new JsonParser();
+
+            Object obj = jsonParser.parse(new FileReader("ProjetoJava\\src\\Db\\DB-Client.json"));
+            JsonArray jsonArray = (JsonArray) obj;
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            List<Client> clientes = new ArrayList<>();
+            jsonArray.forEach(jsonClient -> {
+                        clientes.add(gson.fromJson(jsonClient, Client.class));
+                    }
+            );
+
+            List<Client> lista2 = new ArrayList<>();
+
+            clientes.forEach(cliente -> {
+                if (!cliente.getNome().equals(nome)) {
                     lista2.add(cliente);
                 }
             });

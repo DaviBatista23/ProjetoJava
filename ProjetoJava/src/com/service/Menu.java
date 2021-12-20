@@ -58,7 +58,7 @@ public class Menu {
                 menuSearchClient();
                 break;
             case 3:
-                ServiceClient.deleteCpf();
+                menuDeleteClient();
             case 0:
                 exitSystem();
                 break;
@@ -93,7 +93,7 @@ public class Menu {
                 menuSearchProvider();
                 break;
             case 3:
-//              Adicionar Menu de remover
+                ServiceProvider.deleteCnpj();
             case 0:
                 exitSystem();
                 break;
@@ -153,5 +153,30 @@ public class Menu {
     public static void sleep() {
         try { Thread.sleep (3000); } catch (InterruptedException ex) {}
         System.out.println("\n----------------");
+    }
+
+    public static void menuDeleteClient() throws IOException, ParseException {
+
+        int opção;
+
+        System.out.println("\nDigite a opção desejada: ");
+        System.out.println("1- Remover por CPF");
+        System.out.println("2- Remover por nome");
+        System.out.println("0- Sair do Sistema");
+
+        Scanner leitura = new Scanner(System.in);
+        opção = leitura.nextInt();
+
+        switch (opção){
+            case 1:
+                ServiceClient.deleteCpf();
+                break;
+            case 2:
+                ServiceClient.deleteName();
+                break;
+            case 0:
+                exitSystem();
+                break;
+        }
     }
 }
