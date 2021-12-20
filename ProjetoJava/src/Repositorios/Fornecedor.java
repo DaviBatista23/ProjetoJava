@@ -38,7 +38,7 @@ public class Fornecedor {
         JsonParser jsonParser = new JsonParser();
 
         try {
-            Object obj = jsonParser.parse(new FileReader("C:\\Users\\Davi Batista\\Documents\\GitHub\\ProjetoJava\\ProjetoJava\\src\\Db\\DB-Provider.json"));
+            Object obj = jsonParser.parse(new FileReader("ProjetoJava\\src\\Db\\DB-Provider.json"));
             JsonArray jsonArray = (JsonArray) obj;
 
             JsonObject newProvider = new JsonObject();
@@ -55,7 +55,7 @@ public class Fornecedor {
             jsonArray.add(newProvider);
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             String jsonProvider = gson.toJson(jsonArray);
-            FileWriter file = new FileWriter("C:\\Users\\Davi Batista\\Documents\\GitHub\\ProjetoJava\\ProjetoJava\\src\\Db\\DB-Provider.json");
+            FileWriter file = new FileWriter("ProjetoJava\\src\\Db\\DB-Provider.json");
             file.write(jsonProvider);
             file.flush();
             file.close();
@@ -132,7 +132,7 @@ public class Fornecedor {
     public static void searchProviderService(String service) {
         try {
             JsonParser jsonParser    = new JsonParser();
-            Object obj = jsonParser.parse(new FileReader("C:\\Users\\Davi Batista\\Documents\\GitHub\\ProjetoJava\\ProjetoJava\\src\\Db\\DB-Provider.json"));
+            Object obj = jsonParser.parse(new FileReader("ProjetoJava\\src\\Db\\DB-Provider.json"));
             JsonArray     jsonArray = (JsonArray) obj;
             Gson          gson      = new GsonBuilder().create();
             List<Fornecedor> fornecedores  = new ArrayList<>();
@@ -162,7 +162,7 @@ public class Fornecedor {
     public static void searchProviderCEP(String cep) {
         try {
             JsonParser jsonParser    = new JsonParser();
-            Object obj = jsonParser.parse(new FileReader("C:\\Users\\Davi Batista\\Documents\\GitHub\\ProjetoJava\\ProjetoJava\\src\\Db\\DB-Provider.json"));
+            Object obj = jsonParser.parse(new FileReader("ProjetoJava\\src\\Db\\DB-Provider.json"));
             JsonArray     jsonArray = (JsonArray) obj;
             Gson          gson      = new GsonBuilder().create();
             List<Fornecedor> fornecedores  = new ArrayList<>();

@@ -1,22 +1,3 @@
 [
-  {
-    "id": 1,
-    "nome": "andreza",
-    "idade": 27,
-    "email": "cardoso@justa.com.vc",
-    "cpf": "42695850808",
-    "dataNasc": "01/06/1994",
-    "tipo": "Cliente",
-    "endereco": "Travessa Alfonso Pina Rúbio 10, , Parque Rodrigues Alves, 02249020"
-  },
-  {
-    "id": 1,
-    "nome": "teste",
-    "idade": 22,
-    "email": "davi@teste.com.vc",
-    "cpf": "47637813835",
-    "dataNasc": "04-12/1999",
-    "tipo": "Cliente",
-    "endereco": "Rua Ivaí 238, 5, Tatuapé, 03080010"
-  }
+
 ]

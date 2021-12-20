@@ -55,7 +55,7 @@ public class Cliente {
         JsonParser jsonParser = new JsonParser();
 
         try {
-            Object obj = jsonParser.parse(new FileReader("C:\\Users\\Davi Batista\\Documents\\GitHub\\ProjetoJava\\ProjetoJava\\src\\Db\\DB-Client.json"));
+            Object obj = jsonParser.parse(new FileReader("ProjetoJava\\src\\Db\\DB-Client.json"));
             JsonArray jsonArray = (JsonArray) obj;
 
             JsonObject newClient = new JsonObject();
@@ -72,7 +72,7 @@ public class Cliente {
             jsonArray.add(newClient);
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             String jsonClient = gson.toJson(jsonArray);
-            FileWriter file = new FileWriter("C:\\Users\\Davi Batista\\Documents\\GitHub\\ProjetoJava\\ProjetoJava\\src\\Db\\DB-Client.json");
+            FileWriter file = new FileWriter("ProjetoJava\\src\\Db\\DB-Client.json");
             file.write(jsonClient);
             file.flush();
             file.close();
@@ -163,7 +163,7 @@ public class Cliente {
         try {
             JsonParser jsonParser = new JsonParser();
 
-            Object obj = jsonParser.parse(new FileReader("C:\\Users\\Davi Batista\\Documents\\GitHub\\ProjetoJava\\ProjetoJava\\src\\Db\\DB-Client.json"));
+            Object obj = jsonParser.parse(new FileReader("ProjetoJava\\src\\Db\\DB-Client.json"));
             JsonArray jsonArray = (JsonArray) obj;
             Gson gson = new GsonBuilder().create();
             List<Cliente> clientes = new ArrayList<>();
@@ -195,7 +195,7 @@ public class Cliente {
     public static void searchClientBairro(String bairro) {
         try {
             JsonParser jsonParser = new JsonParser();
-            Object obj = jsonParser.parse(new FileReader("C:\\Users\\Davi Batista\\Documents\\GitHub\\ProjetoJava\\ProjetoJava\\src\\Db\\DB-Client.json"));
+            Object obj = jsonParser.parse(new FileReader("ProjetoJava\\src\\Db\\DB-Client.json"));
             JsonArray jsonArray = (JsonArray) obj;
             Gson gson = new GsonBuilder().create();
             List<Cliente> clientes = new ArrayList<>();
@@ -230,7 +230,7 @@ public class Cliente {
         try {
             JsonParser jsonParser = new JsonParser();
 
-            Object obj = jsonParser.parse(new FileReader("C:\\Users\\Davi Batista\\Documents\\GitHub\\ProjetoJava\\ProjetoJava\\src\\Db\\DB-Client.json"));
+            Object obj = jsonParser.parse(new FileReader("ProjetoJava\\src\\Db\\DB-Client.json"));
             JsonArray jsonArray = (JsonArray) obj;
             Gson gson = new GsonBuilder().create();
             List<Cliente> clientes = new ArrayList<>();
@@ -258,5 +258,7 @@ public class Cliente {
 
         }
     }
+
+
 
 }

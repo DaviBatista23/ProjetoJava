@@ -27,7 +27,7 @@ public class ServiceAdress {
         Scanner leitura = new Scanner(System.in);
 
         System.out.println("\nInforme o Endereço: ");
-        System.out.println("Digite o CEP: ");
+        System.out.println("Digite o CEP (Apenas números)");
         ServiceAdress.cep = leitura.nextLine();
         String json;
         try {
