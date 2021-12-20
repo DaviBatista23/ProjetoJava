@@ -1,9 +1,9 @@
-package MeuPacote;
+package Validation;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ValidaEmail {
+public class ValidateEmail {
 
     public static boolean isEmail (String email) {
         boolean isEmailIdValid = false;

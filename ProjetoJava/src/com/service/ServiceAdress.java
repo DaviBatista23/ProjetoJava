@@ -56,6 +56,7 @@ public class ServiceAdress {
             String uf = array[23];
 
             System.out.println(logradouro + " " + bairro + " " + cidade + " " + uf);
+            ServiceAdress.bairro = bairro;
 
 
             System.out.println("Digite o número: ");
@@ -67,7 +68,7 @@ public class ServiceAdress {
             String space = " ";
             String sv = ", ";
 
-            return logradouro + space + numero + sv + complemento + sv + bairro + sv + cep;
+            return logradouro + space + numero + sv + complemento + sv + cep;
 
         } catch (Exception exceptionCep) {
             throw new RuntimeException(exceptionCep);
