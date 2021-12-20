@@ -58,7 +58,7 @@ public class Menu {
                 menuSearchClient();
                 break;
             case 3:
-                //Adicionar menu de remover
+                ServiceClient.deleteCpf();
             case 0:
                 exitSystem();
                 break;

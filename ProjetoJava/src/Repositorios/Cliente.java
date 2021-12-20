@@ -232,33 +232,31 @@ public class Cliente {
 
             Object obj = jsonParser.parse(new FileReader("ProjetoJava\\src\\Db\\DB-Client.json"));
             JsonArray jsonArray = (JsonArray) obj;
-            Gson gson = new GsonBuilder().create();
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
             List<Cliente> clientes = new ArrayList<>();
             jsonArray.forEach(jsonClient -> {
                         clientes.add(gson.fromJson(jsonClient, Cliente.class));
                     }
             );
 
-            List<Cliente> lista2 = clientes.stream().filter(cliente -> cliente.getCpf().equals(cpf)).collect(Collectors.toList());
+            List<Cliente> lista2 = new ArrayList<>();
 
-            Cliente cliente = !lista2.isEmpty() ? lista2.get(0) : null;
-            if (cliente != null) {
-                System.out.println("\nCliente encontrado:");
-                System.out.println("\nId: " + cliente.getId());
-                System.out.println("Nome: " + cliente.getNome());
-                System.out.println("Idade: " + cliente.getIdade());
-                System.out.println("E-mail: " + cliente.getEmail());
-                System.out.println("CPF: " + cliente.getCpf());
-                System.out.println("Data Nascimento: " + cliente.getDataNasc());
-                System.out.println("Tipo: " + cliente.getTipo());
-                System.out.println("Endereco: " + cliente.getEndereco());
-            }
+            clientes.forEach(cliente -> {
+                if (!cliente.getCpf().equals(cpf)) {
+                    lista2.add(cliente);
+                }
+            });
 
-        } catch (FileNotFoundException | ParseException ignored) {
+            String jsonListClient = gson.toJson(lista2);
+            FileWriter file = new FileWriter("ProjetoJava\\src\\Db\\DB-Client.json");
+            file.write(jsonListClient);
+            file.flush();
+            file.close();
 
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
-
 
 
 }
