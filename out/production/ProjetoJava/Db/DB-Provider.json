@@ -4,32 +4,10 @@
     "nome": "Teste Fornecedor",
     "nomeFant": "Fornecedor",
     "dataFund": "04-12-1999",
+    "endereco": "Rua Ivaí 250, 5, 03080010",
     "email": "teste@fornecedor.com",
     "service": "Teste",
     "tipo": "Fornecedor",
-    "cep": "03080010",
-    "endereco": "Rua Ivaí 250, 5, 03080010"
-  },
-  {
-    "cnpj": "38219578000106",
-    "nome": "Teste Fornecedor",
-    "nomeFant": "Fornecedor",
-    "dataFund": "04-12-1999",
-    "email": "teste@fornecedor.com",
-    "service": "Teste",
-    "tipo": "Fornecedor",
-    "cep": "03080010",
-    "endereco": "Rua Ivaí 250, 5, 03080010"
-  },
-  {
-    "cnpj": "43112712000105",
-    "nome": "Teste Fornecedor",
-    "nomeFant": "Fornecedor",
-    "dataFund": "04-12-1999",
-    "email": "teste@fornecedor.com",
-    "service": "Teste",
-    "tipo": "Fornecedor",
-    "cep": "03080010",
-    "endereco": "Rua Ivaí 250, 5, 03080010"
+    "cep": "03080010"
   }
 ]

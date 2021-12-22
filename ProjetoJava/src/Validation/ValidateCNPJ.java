@@ -1,6 +1,17 @@
 package Validation;
 
+import Repositories.Provider;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonParser;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class ValidateCNPJ {
 
@@ -62,10 +73,25 @@ public class ValidateCNPJ {
         }
     }
 
-    public static String imprimeCNPJ(String CNPJ) {
-        // máscara do CNPJ: 99.999.999.9999-99
-        return(CNPJ.substring(0, 2) + "." + CNPJ.substring(2, 5) + "." +
-                CNPJ.substring(5, 8) + "." + CNPJ.substring(8, 12) + "-" +
-                CNPJ.substring(12, 14));
+    public static boolean existCnpj(String cnpj) throws FileNotFoundException {
+
+        JsonParser jsonParser = new JsonParser();
+        Object obj = jsonParser.parse(new FileReader("ProjetoJava\\src\\Db\\DB-Provider.json"));
+        JsonArray jsonArray = (JsonArray) obj;
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        List<Provider> providers = new ArrayList<>();
+        jsonArray.forEach(jsonProvider -> {
+                    providers.add(gson.fromJson(jsonProvider, Provider.class));
+                }
+        );
+
+        List<Provider> lista2 = providers.stream().filter(provider ->
+                provider.getCnpj().equals(cnpj)
+        ).collect(Collectors.toList());
+        if (!lista2.isEmpty()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

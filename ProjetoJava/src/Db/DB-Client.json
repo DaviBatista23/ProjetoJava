@@ -4,18 +4,18 @@
     "nome": "Teste Davi",
     "idade": 22,
     "email": "davi@teste.com",
-    "cpf": "12801432822",
+    "cpf": "47637813835",
     "endereco": "Rua Ivaí 250, 5, 03080010",
     "dataNasc": "04-12-1999",
     "tipo": "Cliente",
-    "bairro": "Tatuapé"
+    "bairro": "Mooca"
   },
   {
     "id": 2,
-    "nome": "Teste Diego",
+    "nome": "Teste Rosa",
     "idade": 22,
     "email": "davi@teste.com",
-    "cpf": "12345678910",
+    "cpf": "12801432852",
     "endereco": "Rua Ivaí 250, 5, 03080010",
     "dataNasc": "04-12-1999",
     "tipo": "Cliente",
@@ -23,13 +23,24 @@
   },
   {
     "id": 3,
-    "nome": "Teste",
+    "nome": "Teste Diego",
     "idade": 22,
     "email": "davi@teste.com",
-    "cpf": "12345678910",
+    "cpf": "92353096034",
     "endereco": "Rua Ivaí 250, 5, 03080010",
     "dataNasc": "04-12-1999",
     "tipo": "Cliente",
-    "bairro": "Itaquera"
+    "bairro": "Mooca"
+  },
+  {
+    "id": 1,
+    "nome": "teste",
+    "idade": 34,
+    "email": "davi@teste.com",
+    "cpf": "86519563048",
+    "dataNasc": "12-12-1987",
+    "tipo": "Cliente",
+    "endereco": "Rua Ivaí 123, 5, 03080010",
+    "bairro": "Tatuapé"
   }
 ]

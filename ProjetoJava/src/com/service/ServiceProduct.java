@@ -34,6 +34,9 @@ public class ServiceProduct {
         int quantidade = leitura.nextInt();
 
         boolean saveProduct =  salva(nome, tipo, quantidade);
+        if (saveProduct == false){
+            System.out.println("Produto cadastrado com sucesso");
+        }
 
         Menu.sleep();
         Menu.menu();
@@ -67,7 +70,6 @@ public class ServiceProduct {
                     produtos2.add(produto);
                 }
             });
-
 
             if (maxQuant) {
                 return false;

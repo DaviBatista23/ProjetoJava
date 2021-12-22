@@ -11,14 +11,14 @@
     "cep": "03080010"
   },
   {
-    "cnpj": "43112712000105",
-    "nome": "Teste Fornecedor",
-    "nomeFant": "Fornecedor",
-    "dataFund": "04-12-1999",
-    "endereco": "Rua Ivaí 250, 5, 03080010",
-    "email": "teste@fornecedor.com",
-    "service": "Teste",
+    "cnpj": "24882064000121",
+    "nome": "Teste Validação ",
+    "nomeFant": "Validação de CNPJ",
+    "dataFund": "22-12-1985",
+    "email": "davi@e-mail.com",
+    "service": "Construção",
     "tipo": "Fornecedor",
-    "cep": "03080010"
+    "cep": "03070010",
+    "endereco": "Rua José Fernandes Torres 23, 5, 03070010"
   }
 ]
