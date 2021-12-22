@@ -1,14 +1,14 @@
 package Repositories;
 
 import com.service.ServiceAdress;
+import com.service.ServiceClient;
 
+import java.io.FileNotFoundException;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.Period;
 
 public class Client {
-
-    private static int sequence = 1;
 
     private int id;
     private String nome;
@@ -20,8 +20,8 @@ public class Client {
     private String tipo;
     private String bairro;
 
-    public Client(String nome, String email, String cpf, String dataNasc, String tipo) {
-        this.id = sequence++;
+    public Client(String nome, String email, String cpf, String dataNasc, String tipo) throws FileNotFoundException {
+        this.id = ServiceClient.contaID(id);
         this.nome = nome;
         this.dataNasc = dataNasc;
         this.idade = calculaIdade();
@@ -49,14 +49,6 @@ public class Client {
 
     public void setDataNasc(String dataNasc) {
         this.dataNasc = dataNasc;
-    }
-
-    public static int getSequence() {
-        return sequence;
-    }
-
-    public static void setSequence(int sequence) {
-        Client.sequence = sequence;
     }
 
     public int getId() {

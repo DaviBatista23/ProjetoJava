@@ -9,5 +9,16 @@
     "service": "Teste",
     "tipo": "Fornecedor",
     "cep": "03080010"
+  },
+  {
+    "cnpj": "24882064000121",
+    "nome": "Teste Validação ",
+    "nomeFant": "Validação de CNPJ",
+    "dataFund": "22-12-1985",
+    "email": "davi@e-mail.com",
+    "service": "Construção",
+    "tipo": "Fornecedor",
+    "cep": "03070010",
+    "endereco": "Rua José Fernandes Torres 23, 5, 03070010"
   }
 ]

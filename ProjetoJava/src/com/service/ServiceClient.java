@@ -34,7 +34,7 @@ public class ServiceClient {
 
         System.out.println("Digite o CPF (Apenas números)");
         String cpf = leitura.nextLine();
-        while(!ValidateCPF.isCPF(cpf) || ValidateCPF.existsCpf(cpf)) {
+        while (!ValidateCPF.isCPF(cpf) || ValidateCPF.existsCpf(cpf)) {
             System.out.printf("ERRO!! CPF Já cadastrado ou inválido\n" +
                     "Tente novamente:\n");
             cpf = leitura.nextLine();
@@ -96,7 +96,7 @@ public class ServiceClient {
 
         Scanner leitura = new Scanner(System.in);
         String cpf = leitura.nextLine();
-        while(!ValidateCPF.existsCpf(cpf)){
+        while (!ValidateCPF.existsCpf(cpf)) {
             System.out.println("Cliente não encontrado!\nTente novamente:");
             cpf = leitura.nextLine();
         }
@@ -145,7 +145,7 @@ public class ServiceClient {
 
         Scanner leitura = new Scanner(System.in);
         String bairro = leitura.nextLine();
-        while (!existDistrict(bairro)){
+        while (!existDistrict(bairro)) {
             System.out.println("Cliente não encontrado!\nTente novamente:");
             bairro = leitura.nextLine();
         }
@@ -195,7 +195,7 @@ public class ServiceClient {
 
         Scanner leitura = new Scanner(System.in);
         String cpf = leitura.nextLine();
-        while(!ValidateCPF.existsCpf(cpf)){
+        while (!ValidateCPF.existsCpf(cpf)) {
             System.out.println("Cliente não encontrado!\nTente novamente:");
             cpf = leitura.nextLine();
         }
@@ -211,7 +211,7 @@ public class ServiceClient {
 
         Scanner leitura = new Scanner(System.in);
         String nome = leitura.nextLine();
-        while(!existName(nome)){
+        while (!existName(nome)) {
             System.out.println("Cliente não encontrado!\nTente novamente:");
             nome = leitura.nextLine();
         }
@@ -302,9 +302,9 @@ public class ServiceClient {
         List<Client> lista2 = clientes.stream().filter(cliente ->
                 cliente.getNome().equals(name)
         ).collect(Collectors.toList());
-        if (!lista2.isEmpty()){
+        if (!lista2.isEmpty()) {
             return true;
-        }else {
+        } else {
             return false;
         }
 
@@ -325,12 +325,26 @@ public class ServiceClient {
         List<Client> lista2 = clientes.stream().filter(cliente ->
                 cliente.getBairro().equals(bairro)
         ).collect(Collectors.toList());
-        if (!lista2.isEmpty()){
+        if (!lista2.isEmpty()) {
             return true;
-        }else {
+        } else {
             return false;
         }
+    }
 
+    public static int contaID(int id) throws FileNotFoundException {
+        JsonParser jsonParser = new JsonParser();
+        Object obj = jsonParser.parse(new FileReader("ProjetoJava\\src\\Db\\DB-Client.json"));
+        JsonArray jsonArray = (JsonArray) obj;
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        List<Client> clientes = new ArrayList<>();
+        jsonArray.forEach(jsonClient -> {
+                    clientes.add(gson.fromJson(jsonClient, Client.class));
+                }
+        );
+        id = clientes.size() + 1;
+
+        return id;
     }
 
 }
