@@ -1,6 +1,6 @@
 [
   {
-    "cnpj": "31257726000138",
+    "cnpj": "11",
     "nome": "Teste Fornecedor",
     "nomeFant": "Fornecedor",
     "dataFund": "04-12-1999",
@@ -15,10 +15,10 @@
     "nome": "Teste Validação ",
     "nomeFant": "Validação de CNPJ",
     "dataFund": "22-12-1985",
+    "endereco": "Rua José Fernandes Torres 23, 5, 03070010",
     "email": "davi@e-mail.com",
     "service": "Construção",
     "tipo": "Fornecedor",
-    "cep": "03070010",
-    "endereco": "Rua José Fernandes Torres 23, 5, 03070010"
+    "cep": "03070010"
   }
 ]

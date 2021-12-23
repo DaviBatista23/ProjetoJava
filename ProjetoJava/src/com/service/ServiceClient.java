@@ -332,7 +332,7 @@ public class ServiceClient {
         }
     }
 
-    public static int contaID(int id) throws FileNotFoundException {
+    public static int countID(int id) throws FileNotFoundException {
         JsonParser jsonParser = new JsonParser();
         Object obj = jsonParser.parse(new FileReader("ProjetoJava\\src\\Db\\DB-Client.json"));
         JsonArray jsonArray = (JsonArray) obj;

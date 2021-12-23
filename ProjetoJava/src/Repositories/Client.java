@@ -21,7 +21,7 @@ public class Client {
     private String bairro;
 
     public Client(String nome, String email, String cpf, String dataNasc, String tipo) throws FileNotFoundException {
-        this.id = ServiceClient.contaID(id);
+        this.id = ServiceClient.countID(id);
         this.nome = nome;
         this.dataNasc = dataNasc;
         this.idade = calculaIdade();

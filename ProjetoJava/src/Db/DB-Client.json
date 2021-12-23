@@ -38,9 +38,9 @@
     "idade": 34,
     "email": "davi@teste.com",
     "cpf": "86519563048",
+    "endereco": "Rua Ivaí 123, 5, 03080010",
     "dataNasc": "12-12-1987",
     "tipo": "Cliente",
-    "endereco": "Rua Ivaí 123, 5, 03080010",
     "bairro": "Tatuapé"
   },
   {
@@ -49,9 +49,9 @@
     "idade": 43,
     "email": "davi@id.com",
     "cpf": "90286284014",
+    "endereco": "Rua Hilário Sebastião Bitti 23, 5, 29190065",
     "dataNasc": "21-01-1978",
     "tipo": "Cliente",
-    "endereco": "Rua Hilário Sebastião Bitti 23, 5, 29190065",
     "bairro": "Centro"
   }
 ]

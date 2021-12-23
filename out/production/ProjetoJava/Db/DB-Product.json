@@ -23,5 +23,10 @@
     "nome": "andreza",
     "tipo": "qa",
     "quantidade": 10
+  },
+  {
+    "nome": "produto",
+    "tipo": "produto ruim",
+    "quantidade": 3
   }
 ]
