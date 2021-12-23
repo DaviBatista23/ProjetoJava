@@ -24,11 +24,15 @@ public class ServiceClient {
 
         System.out.println("Digite o Nome: ");
         String nome = leitura.nextLine();
+        while (nome.isEmpty()){
+            System.out.println("ERRO! Nome inválido!\nTente novamente:");
+            nome = leitura.nextLine();
+        }
 
         System.out.println("Digite o E-mail: ");
         String email = leitura.nextLine();
         while (ValidateEmail.isEmail(email) != true) {
-            System.out.printf("Erro, E-mail inválido !!!\nTente novamente:\n");
+            System.out.printf("ERRO! E-mail inválido !!!\nTente novamente:\n");
             email = leitura.nextLine();
         }
 
@@ -43,7 +47,7 @@ public class ServiceClient {
         System.out.println("Digite a Data de nascimento: ");
         String dataNasc = leitura.nextLine();
         while (dataNasc.length() != 10) {
-            System.out.printf("Erro, data inválida !!!\nTente novamente:\n");
+            System.out.printf("ERRO! data inválida !!!\nTente novamente:\n");
             dataNasc = leitura.nextLine();
         }
 

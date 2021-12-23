@@ -26,15 +26,27 @@ public class ServiceProduct {
 
         System.out.println("\nInforme o nome do produto: ");
         String nome = leitura.nextLine();
+        while (nome.isEmpty()){
+            System.out.println("ERRO! Nome inválido!\nTente novamente:");
+            nome = leitura.nextLine();
+        }
 
         System.out.println("\nInforme o tipo do produto: ");
         String tipo = leitura.nextLine();
+        while (tipo.isEmpty()){
+            System.out.println("ERRO! Tipo inválido!\nTente novamente:");
+            tipo = leitura.nextLine();
+        }
 
         System.out.println("\nInforme a quantidade do produto: ");
         int quantidade = leitura.nextInt();
+        while (quantidade < 0){
+            System.out.println("ERRO! quantidade inválida!\nTente novamente:");
+            nome = leitura.nextLine();
+        }
 
         boolean saveProduct =  salva(nome, tipo, quantidade);
-        if (saveProduct == false){
+        if (!saveProduct){
             System.out.println("Produto cadastrado com sucesso");
         }
 

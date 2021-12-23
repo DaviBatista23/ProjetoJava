@@ -24,21 +24,29 @@ public class ServiceProvider {
 
         System.out.println("Digite o Nome: ");
         String nome = leitura.nextLine();
+        while (nome.isEmpty()){
+            System.out.println("ERRO! Nome inválido!\nTente novamente:");
+            nome = leitura.nextLine();
+        }
 
         System.out.println("Digite o Nome Fantasia: ");
         String nomeFant = leitura.nextLine();
+        while (nomeFant.isEmpty()){
+            System.out.println("ERRO! Nome Fantasia inválido!\nTente novamente:");
+            nome = leitura.nextLine();
+        }
 
         System.out.println("Digite o E-mail: ");
         String email = leitura.nextLine();
         while (ValidateEmail.isEmail(email) != true) {
-            System.out.printf("Erro, E-mail inválido !!!\nTente novamente:\n");
+            System.out.printf("ERRO! E-mail inválido!\nTente novamente:\n");
             email = leitura.nextLine();
         }
 
         System.out.println("Digite o CNPJ (Apenas números) ");
         String cnpj = leitura.nextLine();
         while (!ValidateCNPJ.isCNPJ(cnpj) || ValidateCNPJ.existCnpj(cnpj)) {
-            System.out.println("EERRO!! CNPJ Já cadastrado ou inválido\n" +
+            System.out.println("ERRO! CNPJ Já cadastrado ou inválido\n" +
                     "Tente novamente:\n");
             cnpj = leitura.nextLine();
         }
@@ -46,12 +54,16 @@ public class ServiceProvider {
         System.out.println("Digite a Data de Fundação: ");
         String dataFund = leitura.nextLine();
         while (dataFund.length() != 10) {
-            System.out.printf("Erro, data inválida !!!\nTente novamente:\n");
+            System.out.printf("ERRO! Data inválida!\nTente novamente:\n");
             dataFund = leitura.nextLine();
         }
 
         System.out.println("Digite o Serviço: ");
         String service = leitura.nextLine();
+        while (service.isEmpty()){
+            System.out.println("ERRO!! Serviço inválido\nTente novamente:");
+            nome = leitura.nextLine();
+        }
 
         String tipo = "Fornecedor";
 

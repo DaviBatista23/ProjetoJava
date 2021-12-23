@@ -28,5 +28,10 @@
     "nome": "produto",
     "tipo": "produto ruim",
     "quantidade": 3
+  },
+  {
+    "nome": "a",
+    "tipo": "a",
+    "quantidade": 0
   }
 ]
